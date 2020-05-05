@@ -1,0 +1,11 @@
+.comp_input {
+  width: 65%;
+  color: white;
+  border-style: none;
+  font-family: 'Anonymous Pro', monospace;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 0.8vh;
+  height: 20%;
+  outline-color: transparent;
+}

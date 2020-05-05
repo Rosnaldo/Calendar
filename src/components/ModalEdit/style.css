@@ -1,0 +1,71 @@
+.modal_edit {
+  background-color: #282828;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: 0.6%;
+  position: absolute;
+  width: 15%;
+  z-index: 3;
+}
+
+.modal_edit > .material-icons {
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 2%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.modal_edit .input {
+  color: white;
+}
+
+.modal_edit .input > .campo {
+  display: flex;
+  margin: 2%;
+}
+
+.modal_edit .input > .campo > input {
+  margin-left: 5%;
+  width: 20%;
+}
+
+.modal_edit button {
+  background-color: yellowgreen;
+  border-radius: 5px;
+  border-style: none;
+  color: white;
+  cursor: pointer;
+  margin: 2% 10%;
+  padding: 1%;
+  width: 67%;
+}
+
+/* .checks {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.checks .campo {
+  display: flex;
+  padding: 2%;
+  width: 100%;
+}
+
+.checks .campo .material-icons {
+  color: white;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+.checks .campo p {
+  color: white;
+  font-size: 0.8em;
+  margin-left: 4%;
+} */

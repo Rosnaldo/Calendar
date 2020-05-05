@@ -1,0 +1,40 @@
+.notifications {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1%;
+  margin-bottom: 8%;
+  width: 100%;
+}
+
+.notifications .icon {
+  color: #282828;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+
+.notifications .red {
+  background-color: #c91b0e;
+  border-radius: 10px;
+  height: 10px;
+  right: 3.7vw;
+  position: absolute;
+  top: 6.6vh;
+  width: 10px;
+}
+
+.notifications .dropdown {
+  background-color: aliceblue;
+  box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.45);
+  height: 30vh;
+  top: 9vh;
+  position: absolute;
+  width: 21vw;
+}
+
+.notifications .dropdown .item {
+  background-color: blueviolet;
+  color: white;
+  padding: 2%;
+  text-align: center;
+  width: 100%;
+}

@@ -1,0 +1,75 @@
+.servico {
+  border-radius: 15px 10px 15px 15px;
+  border-style: solid;
+  border-color: #282828;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 12vw;
+  z-index: 2;
+}
+
+.servico > .header {
+  width: 60%;
+  height: 2.5vh;
+}
+
+.servico .edit, .servico .colorize, .servico .delete {
+  padding: 1px;
+  position: absolute;
+  top: 0.3vh;
+  right: 2%;
+  border-style: none;
+  background-color: #5b6c80;
+  color: white;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.servico .edit {
+  right: 28%;
+  border-radius: 10px;
+}
+
+.servico .colorize {
+  right: 16%;
+}
+
+.servico .delete {
+  right: 4%;
+}
+
+.servico .input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.servico .campo {
+  display: flex;
+  justify-content: center;
+}
+
+.servico .campo .campo-icon {
+  color: white;
+  font-size: 0.8em;
+  margin: 6% 5%;
+  margin-right: 4%;
+}
+
+.up {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 5px;
+  cursor: ns-resize;
+}
+
+.down {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  cursor: ns-resize;
+}
