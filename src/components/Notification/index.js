@@ -11,7 +11,6 @@ const Notification = (props) => {
   const [show, setShow] = useState(false);
   const [hasNotification, setHasNotification] = useState(false);
   
-  console.log(intersections)
   useEffect(() => {
     if (Object.values(intersections) > 0) {
       setHasNotification(true);
@@ -33,9 +32,13 @@ const Notification = (props) => {
           { display: 'block' } :
           { display: 'none' } }
       >
-        {Object.entries(intersections).map(([key, { name, index, date }]) => (
-          <div key={key} className="item">{`${name} -> Eq.${index} -> ${date}`}</div>
-        ))}
+        {Object.entries(intersections).map(([date, values]) => {
+          return(
+            values.map(({name, index, id}) => (
+              <div key={date + id} className="item">{`${name} -> Eq.${index} -> ${date}`}</div>
+            ))
+          );
+        })}
       </div>
     </div>
   );

@@ -120,37 +120,36 @@ class ModalEdit extends Component {
 
   notification() {
     let obj = { day: today, month: monthCurr, year: yearCurr };
-    let res = this.servIntersection(obj.day, obj.month, obj.year);
-    Object.keys(res).forEach((id) => {
-      res[id] = { ...res[id], date: dateFormat(obj.day, obj.month, obj.year) }
+    let res = {
+      [dateFormat(obj.day, obj.month, obj.year)]: [],
+    };
+    this.servIntersection(obj.day, obj.month, obj.year)
+    .forEach((item) => {
+      const { index, name, id} = item;
+      res[dateFormat(obj.day, obj.month, obj.year)] = [ 
+        ...res[dateFormat(obj.day, obj.month, obj.year)],
+        { index, name, id } 
+      ]
     });
-    let res2 = {};
     for (let i = 0; i < 30; i++) {
       obj = { ...sunDay({...obj}) };
       this.createArquivoDate(obj.day, obj.month, obj.year);
-      res2 = {
-        ...res2,
-        ...this.servIntersection(obj.day, obj.month, obj.year),
-      }
-      Object.keys(res2).forEach((id) => {
-        res2[id] = { ...res2[id], date: dateFormat(obj.day, obj.month, obj.year) }
+      res[dateFormat(obj.day, obj.month, obj.year)] = [];
+      this.servIntersection(obj.day, obj.month, obj.year)
+        .forEach((item) => {
+      const { index, name, id} = item;
+      res[dateFormat(obj.day, obj.month, obj.year)] = [ 
+        ...res[dateFormat(obj.day, obj.month, obj.year)],
+        { index, name, id } 
+      ]
       });
     }
-    
-    return Object.assign(res, res2);;
-  }
-
-  createArquivoDate(day, month, year) {
-    const { dispatch, arquivo } = this.props;
-    if (arquivo[dateFormat(day, month, year)] === undefined) {
-      arquivo[dateFormat(day, month, year)] = [{}, {}, {}, {}, {}];
-      dispatch(action(arquivo));
-    }
+    return res;
   }
 
   servIntersection(day, month, year) {
     const elems = this.initRelatedServ(day, month, year);
-    const intersections = {};
+    const intersections = [];
     elems.forEach((elem, index) => {
       const obj = Object.entries(elem)
         .sort((a, b) => (a[1].top) > b[1].top ? 1 : -1);
@@ -161,11 +160,19 @@ class ModalEdit extends Component {
         const { top: top1, height: height1, input: { name } } = obj[i - 1][1];
         const { top: top2 } = obj[i][1];
         if (top1 + height1 > top2 || top1 === top2) {
-          intersections[obj[i][0]] = { index, name };
+          intersections.push({ id: obj[i][0], index, name });
         }
       }
     });
     return intersections;
+  }
+
+  createArquivoDate(day, month, year) {
+    const { dispatch, arquivo } = this.props;
+    if (arquivo[dateFormat(day, month, year)] === undefined) {
+      arquivo[dateFormat(day, month, year)] = [{}, {}, {}, {}, {}];
+      dispatch(action(arquivo));
+    }
   }
 
   switchType2(color) {

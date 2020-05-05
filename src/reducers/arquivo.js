@@ -24,7 +24,7 @@ const INITIAL_STATE = {
         },
       },
       {
-        "6fwa-35b-45b2-bd6b-ce435232c": {
+        "6fwa-35b-45b2-b38jvr-b-c477-32c": {
           top: 18,
           height: 19,
           color: "rgb(63, 113, 252)",
@@ -36,7 +36,14 @@ const INITIAL_STATE = {
       {},
     ],
     "11/May/2020" : [
-      {},
+      {
+        "6fwa-35b-45b2-bd6b-ce435232c": {
+          top: 18,
+          height: 19,
+          color: "rgb(63, 113, 252)",
+          input: { name: "coisa", horario: "7h ~ 9h", endereco: "rua Josué" },
+        },
+      },
       {
         "6fwa-35b-45b2-bd6b-c477-32c": {
           top: 18,
