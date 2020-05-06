@@ -9,23 +9,21 @@ const handleClick = (setShow) => {
 const Notification = (props) => {
   const { intersections } = props;
   const [show, setShow] = useState(false);
-  const [hasNotification, setHasNotification] = useState(false);
-  
+  const [hasNotification, setHasNotification] = useState(true);
   useEffect(() => {
-    if (Object.values(intersections) > 0) {
+    if (Object.values(intersections).some((date) => date.length > 0)) {
       setHasNotification(true);
     } else {
       setHasNotification(false);
     }
   }, [intersections]);
-
   
   return (
     <div className="notifications">
       <span className="material-icons icon" onClick={() => handleClick(setShow)}>
         notifications
       </span>
-      {(hasNotification) ? <div className="red"></div> : <div />}
+      {(hasNotification) ? <div className="red" /> : <div />}
       <div className="dropdown"
         style={
           (show) ? 

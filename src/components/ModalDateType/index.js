@@ -64,10 +64,9 @@ class ModalDateType extends Component {
   }
 
   handleClick(e) {
-    const { dispatch, modal: { id, index } } = this.props;
+    const { modal: { id, index } } = this.props;
     const color = e.target.getAttribute('name');
     this.selectColor(color, id, index);
-    // dispatch(actionNotifications(this.notification()));
   }
 
   initRelatedServ(day, month, year) {
@@ -172,6 +171,7 @@ class ModalDateType extends Component {
     arquivo[dateFormat(day, month, year)][index][id] = { input, top, height, color };
     dispatch(action(arquivo));
     dispatch(actionElemsRender(this.initRelatedServ(day, month, year)));
+    dispatch(actionNotifications(this.notification()));
   }
 
   changeSer(id, index, type, color) {
@@ -188,6 +188,7 @@ class ModalDateType extends Component {
     dispatch(action(arquivo));
     dispatch(actionRelated(related));
     dispatch(actionElemsRender(this.initRelatedServ(day, month, year)));
+    dispatch(actionNotifications(this.notification()));
   }
 
   deleteAllRelatedById(id) {
@@ -213,7 +214,6 @@ class ModalDateType extends Component {
 
   relatedElems(elems, type, sunCb, color) {
     const { day, month, year, related } = this.props;
-    console.log(elems)
     Object.keys(related[type]).forEach((relatedId) => {
       const [startDate, index, serv, endDate] = related[type][relatedId];
       if (matchDateType(startDate, dateFormat(day, month, year), sunCb)
