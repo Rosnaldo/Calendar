@@ -200,6 +200,7 @@ class Table extends Component {
     const json = {...arquivo};
     json[dateFormat(day, month, year)][index][generateUUID()] = { ...this.createServ() };
     dispatch(action(json));
+    dispatch(actionNotifications(this.notification()));
   }
 
   addBtnsRender() {
